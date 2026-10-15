@@ -1,23 +1,19 @@
-# Engineering overview
+# System overview
 
-AI ANALYTOX integrates camera acquisition, computer vision, identity, history and operator tools into one system. The engineering focus is resource efficiency and predictable behavior as the camera workload grows.
+AI ANALYTICS connects camera feeds, computer-vision analysis, person records, activity history and a browser workspace.
 
-## Shared compute
+## Cameras
 
-Multiple camera workloads reuse loaded AI models. Each analysis feature follows its own processing budget, with coordinated inference requests and camera-specific feature selection.
+Each camera has an independent connection, status monitoring and reconnection. Cameras are assigned to branch workspaces and have individual analysis settings.
 
-## Efficient video handling
+## Analysis
 
-Frame handling has defined memory limits. Redundant transfers, conversions and image operations are reduced before they become a CPU or memory burden. Heavier analysis and continuous tracking have separate responsibilities.
+Loaded AI models are shared across camera workloads. People tracking, face recognition, scene objects, handgun detection and activity estimates follow separate analysis schedules.
 
-## Operational continuity
+## Records and maps
 
-Camera connections are isolated and monitored. Startup, reconnection and shutdown are controlled independently, and rejected credentials pause further login attempts.
+Person cards, sightings, activity changes and positions form the operational history. Floor plans connect camera views with rooms, zones and movement routes.
 
-## Analysis and presentation
+## Operator workspace
 
-Analysis continues independently of browser viewing. Display preparation follows active views, while person records, time reports and map tools share the same operational observations.
-
-## History management
-
-State changes and meaningful movement become compact records for reporting and replay. Buffered recording and retention policies keep background storage work under control.
+Live camera panels, the people database, activity reports, the map editor and camera management are available in the browser. Analysis continues independently of the currently open view.

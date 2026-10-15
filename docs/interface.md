@@ -1,4 +1,4 @@
-# Operator workspace
+# AI ANALYTICS interface
 
 ## Live analytics
 

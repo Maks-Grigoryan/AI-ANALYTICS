@@ -1,7 +1,5 @@
 # Operation
 
-AI ANALYTOX processes camera video locally and provides a browser-based operator workspace.
+AI ANALYTICS processes connected camera feeds locally and provides a browser workspace.
 
-Camera groups, analytics features and history retention can be configured for the installation. Processing resources are planned around the number of active cameras, the enabled analysis tasks and the required viewing workload.
-
-Operational controls include camera status, branch assignment, feature selection, connection recovery and explicit camera-session shutdown.
+The interface includes camera status, branch assignment, analysis settings, people records, reports and floor-plan tools. Camera connections support monitoring, reconnection and explicit session shutdown.

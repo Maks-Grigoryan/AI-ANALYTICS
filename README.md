@@ -1,59 +1,44 @@
-# AI ANALYTOX
+# AI ANALYTICS
 
-### Multi-camera intelligence, engineered for efficient operation
+A multi-camera video analytics platform with people tracking, face recognition, activity reports, handgun detection and floor-plan monitoring.
 
-AI ANALYTOX brings live video analytics, face recognition, activity reporting and floor-plan monitoring into one operator workspace. I built the complete camera-to-insight system, with particular attention to how CPU, GPU, memory and storage are used as the camera workload grows.
+[Projects](https://maks-grigoryan.github.io/projects/#ai-analytics) · [Portfolio](https://maks-grigoryan.github.io/portfolio/#projects)
 
-[Projects](https://maks-grigoryan.github.io/projects/#ai-analytox) · [Portfolio](https://maks-grigoryan.github.io/portfolio/#projects)
+## Live analytics
 
-## What the system delivers
+The live workspace shows multiple camera feeds with people tracking, recognized names, posture and activity labels, scene objects and handgun detections. Camera panels can be reordered and arranged in different layouts, with connection status visible for each view.
 
-- **Live camera supervision** — multiple camera views with people tracking, identity labels and visual analytics.
-- **People recognition and continuity** — a shared identity workspace, searchable person cards and continuity across camera views.
-- **Activity and time reporting** — sitting / standing and working / on-phone / idle estimates, presence history and daily or period summaries.
-- **Spatial monitoring** — a floor-plan editor, camera placement, named zones, live positions and route replay.
-- **Weapon monitoring** — handgun detection integrated into the live camera view.
-- **Branch and camera management** — location-based workspaces, connection status and configurable analytics for each camera.
+Operators can find a person by name or search by clothing appearance. The same camera workspace brings together observations from the different analysis tasks, while branch selection keeps the views organized by location.
 
-## Engineering decisions and resource efficiency
+## People and identity
 
-The main engineering challenge was coordinating camera capture, several AI tasks, identity tracking, history and live viewing on shared hardware. I optimized the work between these stages so that adding an analysis feature does not require duplicating an entire processing stack.
+The people database groups repeated face sightings into person cards. Named and unnamed people have separate views, with face samples, sighting counts, first and last appearance, camera references and profile information.
 
-### Shared AI resources
+An operator can name a person, edit profile fields, inspect samples and merge duplicate cards. The shared identity workspace connects sightings across camera views and branches, while track continuity preserves identity as a person moves through a scene.
 
-I organized GPU inference as a shared resource serving multiple cameras. Model reuse limits repeated GPU allocations, while coordinated requests make better use of the loaded models. Optimized inference runtimes support efficient execution on the available GPU.
+## Activity and time reports
 
-### Processing budgets for each task
+Posture and activity are recorded separately: a person can be sitting or standing while working, using a phone or appearing idle. Presence history is retained alongside these activity estimates.
 
-Each analysis task has its own execution schedule. Tracking and state continuity keep the camera view useful between heavier inference updates. Camera-specific analytics switches let a deployment spend compute on the features needed for each view.
+Daily reports show presence, work / phone / idle totals and first / last appearance. Period summaries cover several days, while idle reports show current or historical episodes. Camera and zone routes connect time records with the person's movement through the monitored space.
 
-### Efficient frame handling
+## Floor plans and movement
 
-I reduced overhead in the path from camera decoding to analysis, limited frame-buffer memory and avoided unnecessary image conversions and transfers. Image operations focus on the relevant regions where possible, keeping temporary allocations and repeated pixel processing under control.
+The floor-plan workspace supports an uploaded plan or a drawing with walls, rooms, doors and furniture. Cameras can be placed on the plan with their orientation and coverage directions, and named zones can be added to the layout.
 
-### Independent analysis and live viewing
+Camera calibration connects observations with positions on the plan. The map shows live positions, recorded zone visits and movement trails. Historical replay includes a timeline and person selection, so an operator can review movement together with the relevant rooms and cameras.
 
-Camera analysis continues when an operator closes a browser view. Display encoding is requested for active viewers, allowing the system to concentrate resources on analytics when live video is not being watched.
+## Handgun detection
 
-### Compact operational history
+A custom YOLO26m detector identifies handguns in camera images and displays detections in the live view. It operates alongside people, identity and activity analysis within the same camera workspace.
 
-History follows meaningful state changes and movement. Buffered position recording and retention controls limit write pressure and storage growth, while keeping the information needed for time reports, zone history and replay.
+## Cameras and branches
 
-### Camera failures remain local
+Branch workspaces group cameras, maps and zones by location. Camera management shows connection status, branch assignment and selectable analysis features for pose, scene objects, handguns, faces and clothing.
 
-Camera connections run independently, with connection monitoring, controlled startup, reconnection and explicit session shutdown. Authentication failures pause further login attempts, helping prevent a rejected camera connection from continuously extending a device lockout.
+The people database remains shared across branch workspaces. Camera assignment and analysis settings can be managed through the interface, and connection monitoring is part of normal operation.
 
-| Engineering focus | Practical result |
-|---|---|
-| Shared inference resources | Multiple cameras reuse loaded AI models |
-| Task scheduling | Heavy analysis runs according to its own workload budget |
-| Controlled frame buffers | Frame memory has defined limits |
-| Focused image operations | Less repeated pixel processing and temporary allocation |
-| Viewing on demand | Display encoding follows active operator views |
-| Event-based history | Reports and replay use compact operational records |
-| Independent camera recovery | A camera connection can recover separately |
-
-## Operator workspace
+## Interface
 
 ![Live analytics](docs/screenshots/live-analytics.png)
 
@@ -65,22 +50,20 @@ Camera connections run independently, with connection monitoring, controlled sta
 |---|---|
 | ![Camera management](docs/screenshots/camera-management.png) | ![Branch overview](docs/screenshots/branch-overview.png) |
 
-## From video to operational insight
+## System organization
 
-```mermaid
-flowchart LR
-    C[Camera network] --> A[Shared video analytics]
-    A --> P[People and identity]
-    A --> T[Activity and time]
-    A --> S[Handgun monitoring]
-    A --> M[Positions and zones]
-    P --> W[Operator workspace]
-    T --> W
-    S --> W
-    M --> W
-```
+Camera connections run independently and feed a shared AI runtime. Tracking, recognition, activity analysis and map observations update the same operational records. Live views, person cards, reports and replay use these observations throughout the workspace.
 
-The same workspace connects live observations with person records, activity history and the floor plan. Operators can move from a camera view to an identity, a time report or a route without switching between separate tools.
+| Component | Operation |
+|---|---|
+| Camera connections | Independent capture, status monitoring, reconnection and session shutdown |
+| AI runtime | Shared model instances with separate schedules for the analysis tasks |
+| Frame handling | Defined buffer limits and image operations on relevant regions |
+| Tracking | Person and state continuity between analysis updates |
+| Live viewing | Camera analysis continues independently of the currently open browser view |
+| History | Activity changes, position recording, retention settings, reports and replay |
+
+Processing, live viewing and history management have separate responsibilities within the system. A camera connection can be monitored and recovered independently, while the operator continues to use the other views and records.
 
 ## Models
 
@@ -92,9 +75,9 @@ The same workspace connects live observations with person records, activity hist
 | Face detection and recognition | SCRFD + ArcFace |
 | Activity and spatial analysis | Temporal analysis and calibrated floor mapping |
 
-## Custom detector — validation results
+## Detector validation
 
-The custom YOLO26m handgun detector was trained with 30,644 training images and evaluated on a validation split of 1,789 images.
+The custom YOLO26m handgun detector uses 30,644 training images and a validation split of 1,789 images.
 
 | Validation metric | Result |
 |---|---|

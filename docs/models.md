@@ -1,4 +1,4 @@
-# Models
+# AI ANALYTICS models
 
 | Task | Model / method |
 |---|---|
@@ -7,8 +7,6 @@
 | Handgun detection | Custom YOLO26m |
 | Face detection and recognition | SCRFD + ArcFace |
 | Activity and spatial analysis | Temporal analysis and calibrated floor mapping |
-
-The runtime combines optimized GPU inference with shared model resources and task-specific scheduling.
 
 ## Custom detector validation
 

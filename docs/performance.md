@@ -1,16 +1,13 @@
-# Compute efficiency
+# Processing
 
-The optimization work covers the full path from camera capture to operator tools.
-
-| Area | Engineering work |
+| Component | Behavior |
 |---|---|
-| GPU resources | Shared model instances and coordinated inference requests |
-| Analysis workload | Separate execution budgets and camera-specific feature selection |
-| CPU overhead | Efficient frame movement and focused image operations |
-| Memory | Defined frame-buffer limits and controlled temporary allocations |
-| Live viewing | Display encoding follows active viewers |
-| Storage | Compact state history, buffered position recording and retention controls |
-| Continuity | Tracking and state memory between heavier analysis updates |
-| Recovery | Independently monitored camera connections and controlled reconnection |
+| Camera connections | Independent capture, monitoring and reconnection |
+| AI runtime | Shared model instances and coordinated analysis requests |
+| Analysis schedules | Separate execution schedules and camera-specific settings |
+| Frames | Defined buffer limits and operations on relevant image regions |
+| Live viewing | Display preparation follows active camera views |
+| History | State changes, buffered position recording and retention settings |
+| Tracking | Person and state continuity between analysis updates |
 
-These decisions make resource use an explicit part of the system design. They also provide practical controls for balancing camera coverage, enabled analytics and available compute.
+The same observations are available in live views, person records, activity reports and floor-plan history.
