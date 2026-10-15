@@ -47,7 +47,7 @@ These are detector validation scores. They do not measure face recognition, acti
 | Cross-branch diagnostic script | Expected printed behaviour; not a comprehensive assertion-based suite |
 | Original UI rendered with synthetic data | Six pages captured; no JavaScript page errors or unhandled fixture API paths |
 
-The database-dependent scripts were isolated from operational stores. The screenshot renderer extracted page constants and render functions; it did not initialize cameras, load GPU models or read employee records. No new live-camera speed benchmark was run for the showcase.
+The database-dependent regression scripts were isolated from operational stores. The synthetic examples were generated from original page templates. The Live gallery was subsequently replaced with real camera captures: the actual SDK workers and GPU models ran against private copies of the data stores, three camera streams produced frames, and a two-minute window was sampled to select populated views. The original operational databases were not modified by that capture session. This was a frame-selection session, not a new speed benchmark or accuracy evaluation.
 
 ## Scaling boundary
 

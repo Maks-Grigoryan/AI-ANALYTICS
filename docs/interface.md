@@ -1,12 +1,31 @@
 # Operator interface
 
-The screenshots below are rendered from the application's original HTML, CSS and JavaScript. All identities, times, counts, camera addresses, office geometry and camera-frame illustrations are synthetic. They demonstrate interface behaviour rather than model accuracy. No real faces, camera credentials or customer floor plans are included.
+The Live screenshots and camera stills below are real captures from the running application on 15 October 2026. The remaining Activity, People Database, Map, Cameras and Branches screenshots are explicitly synthetic demonstration examples. Camera credentials and operational databases are not distributed.
 
 ## Live analytics
 
 ![Live analytics](live-analytics.png)
 
-The Live workspace combines camera status, annotated panels, name search and shirt / trouser colour filters. Operators can reorder panels and choose one, two, three or four columns. The screenshot uses illustrated office scenes with pose and identity overlays; these panels are not real inference results.
+The Live workspace combines camera status, annotated panels, name search and shirt / trouser colour filters. Operators can reorder panels and choose one, two, three or four columns. The focused screenshot shows the busiest sampled camera. Its people, scene objects, skeletons and activity labels are outputs of the actual application.
+
+![Selected real multi-camera panels](live-multicamera.png)
+
+These panels use independently selected frames from the busiest views during a two-minute sampling window, rather than a claim that they occurred at exactly the same moment. Camera on-screen clocks may differ from the workstation clock.
+
+### Full-resolution camera frames
+
+![Real camera 01 frame](camera-01-real.jpg)
+
+*Real annotated frame from camera 01; selected by active-track count and image sharpness during the capture window.*
+
+![Real camera 03 frame](camera-03-real.jpg)
+
+*Real annotated frame from camera 03; selected by active-track count and image sharpness during the capture window.*
+
+![Real camera 02 frame](camera-02-real.jpg)
+
+*Real annotated frame from camera 02; selected by active-track count and image sharpness during the capture window.*
+
 
 ## Activity and time
 

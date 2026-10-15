@@ -8,7 +8,7 @@ An on-premise computer-vision platform that turns Hikvision camera streams into 
 ![InsightFace](https://img.shields.io/badge/InsightFace-SCRFD_%2B_ArcFace-111823?style=flat-square)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Operator_UI-009688?style=flat-square&logo=fastapi&logoColor=white)
 
-> Showcase repository: functionality, architecture, model configuration, measured results and interface screenshots. Application source, model weights, proprietary SDK binaries and operational data are private.
+> Showcase repository: functionality, architecture, model configuration, measured results and interface screenshots. Application source, model weights, proprietary SDK binaries and underlying operational databases are private. Selected real camera frames are included below.
 
 [Projects](https://maks-grigoryan.github.io/projects/) · [Portfolio](https://maks-grigoryan.github.io/portfolio/) · [Architecture](docs/architecture.md) · [Models](docs/models.md) · [Features](docs/features.md) · [UI gallery](docs/interface.md)
 
@@ -29,13 +29,16 @@ An on-premise computer-vision platform that turns Hikvision camera streams into 
 ## Operator workspace
 
 ![Live analytics](docs/live-analytics.png)
-*Original Live page with synthetic employee identities and illustrated camera frames. The illustrations are not model predictions or real surveillance footage.*
+*Focused Live view of the busiest sampled camera, captured from the running application on 15 October 2026. The people, pose skeletons, object boxes and activity labels come from the real camera pipeline.*
+
+![Real multi-camera view](docs/live-multicamera.png)
+*Additional selected live-camera panels. Frames were chosen independently during the sampling window; they are not presented as a synchronized instant.*
 
 | Activity and time accounting | Live floor plan and replay |
 |---|---|
 | ![Activity dashboard](docs/activity-dashboard.png) | ![Floor map](docs/floor-map.png) |
 
-*Screenshots use the application's actual HTML/CSS/JavaScript with synthetic metrics, identities and office geometry. More views: [interface gallery](docs/interface.md).*
+*Live screenshots above use real captured frames. The Activity, People Database, Map and management examples use synthetic demonstration data. More views and full-resolution camera frames: [interface gallery](docs/interface.md).*
 
 ## How it works
 
@@ -134,7 +137,7 @@ The implementation isolates native camera failures, shares model memory, schedul
 
 The implemented application runs several logical branches on one workstation. Distributed branch synchronization, GPU video decoding and a second-stage weapon classifier remain future work. Activity labels estimate visible interactions; they are not a validated measurement of employee productivity. The current application requires a controlled access layer for shared deployment, and its identity-merging and date-boundary paths have known edge cases described in [deployment notes](docs/deployment.md).
 
-This repository documents the system and does not contain a runnable application package. No operational face embeddings, employee details, camera credentials, private addresses, recordings or real floor plans are included.
+This repository documents the system and does not contain a runnable application package. Selected annotated camera stills are public; the operational databases, face embeddings, employee profile records, camera credentials, private network configuration, continuous recordings and real floor plans are not distributed.
 
 ## Stack
 
