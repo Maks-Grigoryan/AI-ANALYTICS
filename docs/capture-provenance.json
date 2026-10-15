@@ -1,0 +1,163 @@
+{
+  "captured_at": "2026-10-15T11:06:33+04:00",
+  "source": "Original application HTTP pages and APIs backed by real operational data copies and live cameras",
+  "camera_status": [
+    {
+      "id": "cam_01",
+      "connected": true,
+      "people": 10,
+      "frames_ready": true
+    },
+    {
+      "id": "cam_02",
+      "connected": true,
+      "people": 2,
+      "frames_ready": true
+    },
+    {
+      "id": "cam_03",
+      "connected": true,
+      "people": 2,
+      "frames_ready": true
+    },
+    {
+      "id": "cam_04",
+      "connected": false,
+      "people": 0,
+      "frames_ready": false
+    }
+  ],
+  "branch_count": 1,
+  "map": {
+    "room_count": 2,
+    "furniture_count": 8,
+    "zone_count": 2,
+    "configured_camera_count": 4,
+    "calibrated_camera_count": 2,
+    "configuration_sha256": "54155ced059ffe3b36fe29ef927f08b513c66ed07004e36458d54729fb3528e5",
+    "live_positions_at_capture": 9
+  },
+  "people_counts": {
+    "named": 28,
+    "unnamed": 1140
+  },
+  "activity_report_day": "2026-10-02",
+  "pages": [
+    {
+      "image": "floor-map-real.png",
+      "route": "/map?branch=br_01",
+      "kind": "Live map from existing branch geometry and actual projected tracks",
+      "details": {
+        "status": "4 of 4 cameras on the plan \u00b7 2 aligned \u00b7 2 zones"
+      },
+      "sha256": "dffa274b547327055f62316be181e3487264b2e3ba7d9110c019f0b6dc52de69"
+    },
+    {
+      "image": "people-database-real.png",
+      "route": "/database",
+      "kind": "Real named people and retained face crops",
+      "details": {
+        "named_cards": 28
+      },
+      "sha256": "3824e797df8361476cac60ab9441e58311e5658715a730c61057470ab3eb17a3"
+    },
+    {
+      "image": "activity-dashboard-real.png",
+      "route": "/activity?branch=br_01",
+      "kind": "Real stored activity report",
+      "details": {
+        "report_day": "2026-10-02"
+      },
+      "sha256": "d2e6e1fbd0b4da6b5c50a4248a46654742715d0ae76e4c32ee739ce76aadd7f3"
+    },
+    {
+      "image": "camera-management-real.png",
+      "route": "/dashboard?branch=br_01",
+      "kind": "Actual camera status and model configuration",
+      "details": {
+        "network_address_column": "omitted"
+      },
+      "sha256": "c67801d7775cb3fc6f6178f8411b01c7786ccf0fd4190dd398ded8d8dd379a5a"
+    },
+    {
+      "image": "branch-overview-real.png",
+      "route": "/",
+      "kind": "Actual configured branch and real camera counts",
+      "details": {},
+      "sha256": "b526baf20a8c98823a694da12c4084b8ec9521a4dfde70f7a78feb6ba12d61d3"
+    }
+  ],
+  "runtime_measurement": {
+    "elapsed_seconds": 21.0,
+    "application_cpu_cores_mean": 3.089,
+    "system_gpu_utilization_percent_mean": 24.95,
+    "system_gpu_memory_mib_mean": 11563.7
+  },
+  "browser_page_errors": [],
+  "observed_real_api_paths": [
+    "/api/appearance",
+    "/api/branch-alerts?branch=",
+    "/api/branches",
+    "/api/cameras",
+    "/api/clothing",
+    "/api/days",
+    "/api/faces/crop/p1070_1788934776455.jpg",
+    "/api/faces/crop/p10_1789031957984.jpg",
+    "/api/faces/crop/p126_1788345655816.jpg",
+    "/api/faces/crop/p1332_1790405002079.jpg",
+    "/api/faces/crop/p13_1788181827194.jpg",
+    "/api/faces/crop/p148_1789128959168.jpg",
+    "/api/faces/crop/p14_1789126504192.jpg",
+    "/api/faces/crop/p152_1788337998757.jpg",
+    "/api/faces/crop/p16_1789478409929.jpg",
+    "/api/faces/crop/p208_1789130661483.jpg",
+    "/api/faces/crop/p211_1788954894655.jpg",
+    "/api/faces/crop/p216_1788339867141.jpg",
+    "/api/faces/crop/p25_1789036475007.jpg",
+    "/api/faces/crop/p2_1788952568488.jpg",
+    "/api/faces/crop/p3_1788871005167.jpg",
+    "/api/faces/crop/p411_1788588116905.jpg",
+    "/api/faces/crop/p432_1788424837414.jpg",
+    "/api/faces/crop/p44_1789031323837.jpg",
+    "/api/faces/crop/p627_1789023925614.jpg",
+    "/api/faces/crop/p62_1789118491415.jpg",
+    "/api/faces/crop/p63_1789817854134.jpg",
+    "/api/faces/crop/p648_1789020755315.jpg",
+    "/api/faces/crop/p786_1788608225906.jpg",
+    "/api/faces/crop/p7_1788176968543.jpg",
+    "/api/faces/crop/p897_1789817889432.jpg",
+    "/api/faces/crop/p899_1788953138869.jpg",
+    "/api/faces/crop/p8_1789027659165.jpg",
+    "/api/faces/crop/p927_1788938716802.jpg",
+    "/api/faces?branch=&named=1",
+    "/api/idle",
+    "/api/idle?day=2026-10-02",
+    "/api/map/live?branch=br_01",
+    "/api/map/replay?branch=br_01",
+    "/api/map?branch=br_01",
+    "/api/summary",
+    "/api/summary?day=2026-10-02"
+  ],
+  "original_training_artifacts": [
+    {
+      "published_file": "weapon-results.png",
+      "original_artifact": "results.png",
+      "sha256": "a31bc4c6d7256a9748e8a1418c99a14cee88ab02da4756d8bd09fc5137bacb24"
+    },
+    {
+      "published_file": "weapon-pr.png",
+      "original_artifact": "BoxPR_curve.png",
+      "sha256": "750bd7972ced3104c8b30a47808305f05802b2750e9c2f71c1bc1252e21fe9b1"
+    },
+    {
+      "published_file": "weapon-confusion.png",
+      "original_artifact": "confusion_matrix_normalized.png",
+      "sha256": "c7852ade480c9f05042dbbc731908404508a6f35ff6995257126cfd7b491ac81"
+    },
+    {
+      "published_file": "weapon-metrics.csv",
+      "original_artifact": "results.csv",
+      "sha256": "65bcac158af687a4088c062b5f77835ac5db20e75dcc7bcf54ffbcafd0804eb5"
+    }
+  ]
+}

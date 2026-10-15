@@ -36,9 +36,9 @@ An on-premise computer-vision platform that turns Hikvision camera streams into 
 
 | Activity and time accounting | Live floor plan and replay |
 |---|---|
-| ![Activity dashboard](docs/activity-dashboard.png) | ![Floor map](docs/floor-map.png) |
+| ![Activity dashboard](docs/activity-dashboard-real.png) | ![Floor map](docs/floor-map-real.png) |
 
-*Live screenshots above use real captured frames. The Activity, People Database, Map and management examples use synthetic demonstration data. More views and full-resolution camera frames: [interface gallery](docs/interface.md).*
+*All interface screenshots are from the running application and real records. The floor plan is the saved two-room branch layout, with its actual camera calibration state and projected tracks. The Activity screenshot shows the stored report for 2 October 2026. More views: [interface gallery](docs/interface.md).*
 
 ## How it works
 
@@ -90,24 +90,23 @@ The deployed custom weapon checkpoint contains **one class: `handgun`**. The pip
 | Validation mAP50 | **0.8449** |
 | Validation mAP50–95 | **0.6047** |
 
-![Training and validation curves](docs/weapon-training.png)
+![Training and validation curves](docs/weapon-results.png)
 
-*Metrics are from epoch 100 of the local training log. The deployed `weapon.pt` matches that run's `best.pt` byte-for-byte. These are validation metrics for the handgun detector, not end-to-end system accuracy or a test-set result. The dataset split counts describe the configured single-class training directory; dataset images and annotations are not redistributed.*
+*The figure above is the original `results.png` saved by the training run, copied without redrawing. Metrics are from epoch 100 of the local training log. The deployed `weapon.pt` matches that run's `best.pt` byte-for-byte. These are validation metrics for the handgun detector, not end-to-end system accuracy or a test-set result. The dataset split counts describe the configured single-class training directory; dataset images and annotations are not redistributed.*
 
 ## Performance and engineering
 
-Documented measurements on **Intel Core Ultra 9 285K + one NVIDIA RTX 5080**, with **four cameras**:
+Actual capture-session measurements on **Intel Core Ultra 9 285K + NVIDIA RTX 5080**, recorded on **15 October 2026**. Three of the four configured camera streams were connected during capture.
 
-| Measurement | Recorded result |
+| Measurement | Observed value |
 |---|---|
-| CPU load | Approximately 3.8–4.5 CPU core equivalents |
-| GPU utilization | Approximately 21–30% |
-| GPU memory | Approximately 11.6 GB |
-| Face embedding | 9.8 ms for one face; 14.4 ms for a batch of eight |
-| Gallery matching | Approximately 0.35 ms for 6,837 stored vectors |
-| SQLite commit | Approximately 2.14 → 0.01 ms after WAL configuration |
+| Application process-group CPU, mean | 3.089 core equivalents |
+| System GPU utilization, mean | 24.95% |
+| System GPU memory, mean | 11563.70 MiB |
+| Sampling | 20 samples over 21.0 seconds |
+| Saved map | 2 rooms, 2 zones, 4 placed cameras; 2 explicitly calibrated |
 
-These are historical engineering measurements recorded during development, not a new benchmark or a guarantee for other camera counts and hardware. **Thirty-camera operation is a scaling goal, not a demonstrated deployment.** [Measurement context and limits →](docs/performance.md)
+The CPU group includes the application and its camera workers. GPU counters are system-wide and include other active GPU processes during UI capture. This short observation is not an inference-only benchmark or a capacity guarantee. The actual samples are in [runtime-sample.csv](docs/runtime-sample.csv), and capture / artifact hashes are in [capture-provenance.json](docs/capture-provenance.json). [Measurement context →](docs/performance.md)
 
 The implementation isolates native camera failures, shares model memory, schedules inference by elapsed time and records state changes instead of writing every frame. A gallery matrix keeps face matching in memory while SQLite remains the durable copy.
 
@@ -137,7 +136,7 @@ The implementation isolates native camera failures, shares model memory, schedul
 
 The implemented application runs several logical branches on one workstation. Distributed branch synchronization, GPU video decoding and a second-stage weapon classifier remain future work. Activity labels estimate visible interactions; they are not a validated measurement of employee productivity. The current application requires a controlled access layer for shared deployment, and its identity-merging and date-boundary paths have known edge cases described in [deployment notes](docs/deployment.md).
 
-This repository documents the system and does not contain a runnable application package. Selected annotated camera stills are public; the operational databases, face embeddings, employee profile records, camera credentials, private network configuration, continuous recordings and real floor plans are not distributed.
+This repository documents the system and does not contain a runnable application package. The selected camera stills, actual UI records and saved floor-plan view are shown above. Complete operational databases, face embeddings, camera credentials, raw network configuration and continuous recordings are not distributed.
 
 ## Stack
 

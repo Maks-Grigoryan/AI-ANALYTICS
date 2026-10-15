@@ -56,7 +56,13 @@ The training log's strongest mAP50–95 entry is epoch 100:
 | mAP50 | 0.84494 |
 | mAP50–95 | 0.60474 |
 
-![Weapon model training](weapon-training.png)
+![Original training results](weapon-results.png)
+
+![Original precision–recall curve](weapon-pr.png)
+
+![Original normalized confusion matrix](weapon-confusion.png)
+
+*Original plots saved by the actual training run; copied without redrawing. Their hashes are recorded in [capture-provenance.json](capture-provenance.json).*
 
 The deployed `weapon.pt` and the run's `best.pt` have the same SHA-256:
 

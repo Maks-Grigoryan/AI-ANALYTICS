@@ -27,7 +27,7 @@ Engine artifacts are hardware / runtime dependent. A separately provisioned depl
 - **Analytics** — debounce, stale-track grace, idle threshold and work-reset window.
 - **Map trails** — sampling, write buffering and retention.
 
-Credentials and operational camera addresses belong in private configuration. The showcase contains example-only addresses and no production configuration files.
+Credentials and operational camera addresses belong in private configuration. Published camera-management captures omit the network-address column. The actual saved floor-plan view is shown; raw connection configuration is not distributed.
 
 ## Recovery mechanisms
 
@@ -44,7 +44,7 @@ These mechanisms have development limitations. In particular, failed partial cam
 - The camera-add probe should run outside the HTTP event loop.
 - User-controlled text requires consistent HTML escaping across all UI views.
 
-These are known application edges rather than features claimed by this case study. The current operational database passed integrity checks; the identity-merge and midnight defects were reproduced with isolated synthetic records.
+These are known application edges rather than features claimed by this case study. The current operational database passed integrity checks; the identity-merge and midnight defects were confirmed in isolated regression checks.
 
 ## Planned work
 

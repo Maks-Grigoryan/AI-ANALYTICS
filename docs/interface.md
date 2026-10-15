@@ -1,58 +1,55 @@
-# Operator interface
+# Operator interface — actual application captures
 
-The Live screenshots and camera stills below are real captures from the running application on 15 October 2026. The remaining Activity, People Database, Map, Cameras and Branches screenshots are explicitly synthetic demonstration examples. Camera credentials and operational databases are not distributed.
+Every image below comes from the running application, its real camera streams, saved branch configuration or real stored records. The capture date is 15 October 2026. Camera addresses are omitted from the Cameras screenshot; no replacement addresses, invented identities, placeholder face pictures or reconstructed office geometry are used.
 
 ## Live analytics
 
-![Live analytics](live-analytics.png)
+![Real Live camera view](live-analytics.png)
 
-The Live workspace combines camera status, annotated panels, name search and shirt / trouser colour filters. Operators can reorder panels and choose one, two, three or four columns. The focused screenshot shows the busiest sampled camera. Its people, scene objects, skeletons and activity labels are outputs of the actual application.
+The busiest selected camera view, with the actual application's pose skeletons, object detections, identities and activity labels.
 
-![Selected real multi-camera panels](live-multicamera.png)
+![Real multi-camera panels](live-multicamera.png)
 
-These panels use independently selected frames from the busiest views during a two-minute sampling window, rather than a claim that they occurred at exactly the same moment. Camera on-screen clocks may differ from the workstation clock.
+The panels use independently selected real frames from the capture window. Camera on-screen clocks can differ from the workstation clock.
 
-### Full-resolution camera frames
+## Full-resolution camera frames
 
-![Real camera 01 frame](camera-01-real.jpg)
+![Camera 01](camera-01-real.jpg)
 
-*Real annotated frame from camera 01; selected by active-track count and image sharpness during the capture window.*
+![Camera 02](camera-02-real.jpg)
 
-![Real camera 03 frame](camera-03-real.jpg)
+![Camera 03](camera-03-real.jpg)
 
-*Real annotated frame from camera 03; selected by active-track count and image sharpness during the capture window.*
-
-![Real camera 02 frame](camera-02-real.jpg)
-
-*Real annotated frame from camera 02; selected by active-track count and image sharpness during the capture window.*
-
+These are the original annotated JPEG snapshots returned by the running application.
 
 ## Activity and time
 
-![Activity dashboard](activity-dashboard.png)
+![Actual stored activity report](activity-dashboard-real.png)
 
-The Activity page contains the idle threshold, current long-idle list, daily totals and historical idle episodes. The same view switches to 3 / 7 / 30-day reports. Values in this image are demonstration fixtures, not operational measurements.
+This is the application's stored report for **2 October 2026**, selected through its day picker. The names, work / phone / idle totals and threshold come from the real database and settings.
 
 ## People database
 
-![People database](people-database.png)
+![Actual people database](people-database-real.png)
 
-The global database separates named and unnamed people, with editable cards and branch membership. The branch-level Faces page uses the same card system with its scope already selected. Avatar illustrations stand in for face crops.
+Real named cards, retained camera face crops, sighting counts, timestamps, clothing observations and branch membership. The captured list contains 28 named identities; no invented employee cards or illustrated avatars are inserted.
 
-## Floor map and replay
+## Saved floor map and actual positions
 
-![Floor map](floor-map.png)
+![Actual saved floor map](floor-map-real.png)
 
-Live, Plan and Align modes share a floor-plan workspace. Operators can draw geometry, place cameras, align image-to-plan coordinates, inspect zones and replay a day's route. The synthetic layout demonstrates four aligned cameras and three zones.
+The branch's existing **working_room / showroom** layout, read directly from its saved configuration: two rooms, eight furniture polygons, two zones and four placed cameras. Two cameras have explicit calibration; the interface correctly identifies cameras 2 and 3 as not aligned. The markers and replay list come from actual observations and recorded positions.
 
 ## Camera management
 
-![Camera management](camera-management.png)
+![Actual camera configuration](camera-management-real.png)
 
-Connection status, branch assignment, model switches and the camera-add form are separate from the Live grid. Documentation addresses use the reserved `192.0.2.0/24` example range.
+Actual configured cameras, connection status and model switches. The network-address column is omitted from the published capture. One camera was unavailable during this session; its actual disconnected state is preserved.
 
 ## Branch overview
 
-![Branch overview](branch-overview.png)
+![Actual branch overview](branch-overview-real.png)
 
-The entry page selects a branch before opening its Live, Faces, Activity, Map or Cameras workspace. The global People Database remains accessible separately.
+The configured branch and its real camera counts, fetched by the original page from the running application.
+
+[Capture provenance and image hashes](capture-provenance.json)
