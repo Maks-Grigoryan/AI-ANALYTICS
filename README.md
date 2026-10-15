@@ -28,17 +28,19 @@ An on-premise computer-vision platform that turns Hikvision camera streams into 
 
 ## Operator workspace
 
-![Live analytics](docs/live-analytics.png)
-*Focused Live view of the busiest sampled camera, captured from the running application on 15 October 2026. The people, pose skeletons, object boxes and activity labels come from the real camera pipeline.*
+![Live multi-camera analytics](docs/screenshots/live-analytics.png)
 
-![Real multi-camera view](docs/live-multicamera.png)
-*Additional selected live-camera panels. Frames were chosen independently during the sampling window; they are not presented as a synchronized instant.*
+*Original operator screenshot from the running application on 15 October 2026, with actual camera feeds, pose skeletons, object detections, recognized identities and activity labels. All four camera indicators are online in this Live capture.*
 
-| Activity and time accounting | Live floor plan and replay |
+| Floor-plan editor | People database |
 |---|---|
-| ![Activity dashboard](docs/activity-dashboard-real.png) | ![Floor map](docs/floor-map-real.png) |
+| ![Saved floor-plan editor](docs/screenshots/floor-plan-editor.png) | ![Faces and named identity cards](docs/screenshots/people-database.png) |
 
-*All interface screenshots are from the running application and real records. The floor plan is the saved two-room branch layout, with its actual camera calibration state and projected tracks. The Activity screenshot shows the stored report for 2 October 2026. More views: [interface gallery](docs/interface.md).*
+| Camera management | Branch overview |
+|---|---|
+| ![Camera status and model switches](docs/screenshots/camera-management.png) | ![Branch overview](docs/screenshots/branch-overview.png) |
+
+*These are the five original screenshots selected by the project owner, published without image changes. They were taken at different times: the earlier Cameras and Branches views show three cameras online, while the later Live view shows all four. [Full-size interface gallery →](docs/interface.md)*
 
 ## How it works
 
@@ -96,7 +98,7 @@ The deployed custom weapon checkpoint contains **one class: `handgun`**. The pip
 
 ## Performance and engineering
 
-Actual capture-session measurements on **Intel Core Ultra 9 285K + NVIDIA RTX 5080**, recorded on **15 October 2026**. Three of the four configured camera streams were connected during capture.
+Measurements from the earlier verification session on **Intel Core Ultra 9 285K + NVIDIA RTX 5080**, recorded on **15 October 2026**. Three of four configured streams were connected during that measurement window; the later owner-supplied Live screenshot above shows all four online.
 
 | Measurement | Observed value |
 |---|---|
@@ -106,7 +108,7 @@ Actual capture-session measurements on **Intel Core Ultra 9 285K + NVIDIA RTX 50
 | Sampling | 20 samples over 21.0 seconds |
 | Saved map | 2 rooms, 2 zones, 4 placed cameras; 2 explicitly calibrated |
 
-The CPU group includes the application and its camera workers. GPU counters are system-wide and include other active GPU processes during UI capture. This short observation is not an inference-only benchmark or a capacity guarantee. The actual samples are in [runtime-sample.csv](docs/runtime-sample.csv), and capture / artifact hashes are in [capture-provenance.json](docs/capture-provenance.json). [Measurement context →](docs/performance.md)
+The CPU group includes the application and its camera workers. GPU counters are system-wide and include other active GPU processes during UI capture. This short observation is not an inference-only benchmark or a capacity guarantee. The actual samples are in [runtime-sample.csv](docs/runtime-sample.csv), and screenshot provenance, measurement context and artifact hashes are in [capture-provenance.json](docs/capture-provenance.json). [Measurement context →](docs/performance.md)
 
 The implementation isolates native camera failures, shares model memory, schedules inference by elapsed time and records state changes instead of writing every frame. A gallery matrix keeps face matching in memory while SQLite remains the durable copy.
 

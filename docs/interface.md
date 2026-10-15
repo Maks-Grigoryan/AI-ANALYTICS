@@ -1,55 +1,35 @@
-# Operator interface — actual application captures
+# Operator interface
 
-Every image below comes from the running application, its real camera streams, saved branch configuration or real stored records. The capture date is 15 October 2026. Camera addresses are omitted from the Cameras screenshot; no replacement addresses, invented identities, placeholder face pictures or reconstructed office geometry are used.
+The five original screenshots below were selected and supplied by the project owner on 15 October 2026. They are copied byte-for-byte from the originals, with their original framing, camera overlays and visible application data.
 
 ## Live analytics
 
-![Real Live camera view](live-analytics.png)
+![Live multi-camera analytics](screenshots/live-analytics.png)
 
-The busiest selected camera view, with the actual application's pose skeletons, object detections, identities and activity labels.
+The actual camera grid, with pose skeletons, object detections, recognized names and activity estimates. All four camera indicators are online in this capture. The camera clocks are independent and can show different times.
 
-![Real multi-camera panels](live-multicamera.png)
+## Floor-plan editor
 
-The panels use independently selected real frames from the capture window. Camera on-screen clocks can differ from the workstation clock.
+![Saved floor-plan editor](screenshots/floor-plan-editor.png)
 
-## Full-resolution camera frames
-
-![Camera 01](camera-01-real.jpg)
-
-![Camera 02](camera-02-real.jpg)
-
-![Camera 03](camera-03-real.jpg)
-
-These are the original annotated JPEG snapshots returned by the running application.
-
-## Activity and time
-
-![Actual stored activity report](activity-dashboard-real.png)
-
-This is the application's stored report for **2 October 2026**, selected through its day picker. The names, work / phone / idle totals and threshold come from the real database and settings.
+The existing **working_room / showroom** layout, shown in the application's drawing editor. The capture includes walls, room names, furniture, four camera placements and their direction / coverage indicators, together with the drawing tools and geometry list.
 
 ## People database
 
-![Actual people database](people-database-real.png)
+![Faces and named identity cards](screenshots/people-database.png)
 
-Real named cards, retained camera face crops, sighting counts, timestamps, clothing observations and branch membership. The captured list contains 28 named identities; no invented employee cards or illustrated avatars are inserted.
-
-## Saved floor map and actual positions
-
-![Actual saved floor map](floor-map-real.png)
-
-The branch's existing **working_room / showroom** layout, read directly from its saved configuration: two rooms, eight furniture polygons, two zones and four placed cameras. Two cameras have explicit calibration; the interface correctly identifies cameras 2 and 3 as not aligned. The markers and replay list come from actual observations and recorded positions.
+The Faces page shows real retained face crops and person cards: names, sighting counts, first / last seen times, camera references and clothing observations. The visible counters are **28 named** and **967 unnamed** identities at the time of this screenshot.
 
 ## Camera management
 
-![Actual camera configuration](camera-management-real.png)
+![Camera status and model configuration](screenshots/camera-management.png)
 
-Actual configured cameras, connection status and model switches. The network-address column is omitted from the published capture. One camera was unavailable during this session; its actual disconnected state is preserved.
+Four configured cameras, their original LAN addresses, branch assignment and pose / objects / weapon / face / clothes switches. This earlier capture shows cameras 1–3 live and camera 4 down; the later Live screenshot above shows all four online.
 
 ## Branch overview
 
-![Actual branch overview](branch-overview-real.png)
+![Branch overview](screenshots/branch-overview.png)
 
-The configured branch and its real camera counts, fetched by the original page from the running application.
+The original GSC branch card, with its **3/4 cameras** status at the time of capture and the Add site control.
 
-[Capture provenance and image hashes](capture-provenance.json)
+[Screenshot provenance, dimensions and SHA-256 hashes](capture-provenance.json)

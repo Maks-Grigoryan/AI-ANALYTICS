@@ -27,7 +27,7 @@ Engine artifacts are hardware / runtime dependent. A separately provisioned depl
 - **Analytics** — debounce, stale-track grace, idle threshold and work-reset window.
 - **Map trails** — sampling, write buffering and retention.
 
-Credentials and operational camera addresses belong in private configuration. Published camera-management captures omit the network-address column. The actual saved floor-plan view is shown; raw connection configuration is not distributed.
+Credentials belong in private configuration. The owner-selected camera-management screenshot shows the original LAN addresses and status. The saved floor-plan editor is also shown; credentials and raw connection configuration are not distributed.
 
 ## Recovery mechanisms
 
